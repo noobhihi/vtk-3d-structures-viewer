@@ -1,14 +1,29 @@
-# VTK 3D Structures Viewer (Python)
+# VTK Inner Ear Visualization (Python)
 
-A small VTK-based project for **3D visualization and basic analysis** of structures.
-Supports loading meshes (STL/OBJ/PLY) and interactive inspection (rotate/zoom), with optional measurements and exports.
+Interactive medical visualization tool built with **VTK** and **PyQt5**.
+Case study: **inner ear anatomy** — volume data (**.nrrd**) + segmented 3D structures (**.vtk**).
 
 ## Features
-- Load and render 3D meshes (STL / OBJ / PLY)
-- Interactive view (camera controls)
-- Basic analysis (e.g., bounds, center of mass, surface area / volume — if enabled)
-- Export screenshots
+- Load raw 3D image volume from **NRRD**
+- Load multiple **VTK mesh** models from a folder (inner ear structures)
+- 3 orthogonal slice views: **sagittal / coronal / axial**
+- Keyboard slice control:
+  - Left/Right → sagittal
+  - Up/Down → coronal
+  - `x` / `z` → axial
+- Opacity control panel (PyQt5 sliders, 10–100%) for each structure
+- Distinct colors for each mesh + semi-transparent default opacity (0.8)
 
-## Requirements
-- Python 3.10+
-- VTK
+## Data source
+Inner ear dataset from OpenAnatomy:
+https://www.openanatomy.org/atlas-pages/atlas-spl-inner-ear.html
+
+> Large datasets are not included in this repo due to size/licensing.
+> See `data/README.md` for download + folder layout.
+
+## Setup
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
